@@ -8,10 +8,10 @@
 import SwiftUI
 
 @main
-struct Asset_TrackerApp: App {
+struct AssetTrackerApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
         }
     }
 }
