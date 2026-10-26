@@ -1,0 +1,12 @@
+# Generated / tooling
+node_modules/
+
+# Local backend (not part of this repo)
+Asset Tracker Backend/
+
+# Xcode user data
+xcuserdata/
+*.xcuserdatad/
+
+# macOS
+.DS_Store

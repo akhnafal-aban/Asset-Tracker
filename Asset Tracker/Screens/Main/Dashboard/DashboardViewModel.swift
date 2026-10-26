@@ -16,14 +16,23 @@ final class DashboardViewModel {
         assets.reduce(0) { $0 + $1.currentValue }
     }
     
-    func fetchAsset() async {
+    var assetsCount: String {
+        String(assets.count)
+    }
+    
+    var top3HighestValueAssets: [Asset] {
+        assets
+            .sorted { $0.currentValue > $1.currentValue }
+            .prefix(3)
+            .map { $0 }
+    }
+    
+    func getAssets() async {
         do {
-            let data = try await Api.get(endpoint: "/assets")
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            decoder.dateDecodingStrategy = .iso8601
-
-            let response = try decoder.decode(AssetResponse.self, from: data)
+            let response = try await Api.send(
+                endpoint: "/assets",
+                type: AssetResponse.self
+            )
             assets = response.data
         } catch {
             print(error)

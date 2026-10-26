@@ -7,4 +7,5 @@
 
 enum AppConfig {
     static let baseURL = "http://localhost:8080/api/v1"
+    static let appEnv = "local"
 }

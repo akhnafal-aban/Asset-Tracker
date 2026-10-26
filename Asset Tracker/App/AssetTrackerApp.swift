@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct AssetTrackerApp: App {
+    @State private var appSettings = AppSettings()
+    
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            AppRootView().environment(appSettings)
         }
     }
 }
