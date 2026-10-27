@@ -7,8 +7,12 @@
 
 import Foundation
 
-struct AssetCategory: Codable {
+struct AssetCategory: Codable, Identifiable, Hashable {
     let id: Int
     let name: String
     let description: String
+}
+
+struct AssetCategoryResponse: Codable {
+    let data: [AssetCategory]
 }

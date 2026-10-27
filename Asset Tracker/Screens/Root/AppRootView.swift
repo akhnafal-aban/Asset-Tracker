@@ -14,10 +14,15 @@ struct AppRootView: View {
             Tab("Settings", systemImage: "gearshape") {
                 SettingsView()
             }
+            
+            Tab("Bitcoin", systemImage: "bitcoinsign.circle.fill") {
+                CryptoDashboardView()
+            }
         }
     }
 }
 
 #Preview {
     AppRootView()
+        .environment(AppSettings())
 }

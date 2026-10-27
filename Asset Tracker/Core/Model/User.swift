@@ -8,8 +8,12 @@
 import SwiftUI
 import Foundation
 
-struct User: Codable {
+struct User: Codable, Identifiable, Hashable{
     let id: Int
     let name: String
     let email: String
+}
+
+struct UserResponse: Codable {
+    let data: [User]
 }
